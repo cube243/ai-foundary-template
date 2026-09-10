@@ -1,0 +1,113 @@
+# Builds and deploys the rename agent (agents/rename) to Bedrock AgentCore
+# Runtime.
+#
+# Required repository variables, same ones as shared-infra-cognito.yml:
+#   AWS_REGION, AWS_DEPLOY_ROLE_ARN, TF_STATE_BUCKET, TF_STATE_LOCK_TABLE
+#
+# Order of operations, because the AgentCore Runtime resource needs a
+# container image to already exist in ECR before it can be created/updated:
+#   1. terraform apply -target=aws_ecr_repository.rename  (ensure repo exists)
+#   2. docker build & push, tagged with the commit SHA
+#   3. terraform apply (full stack), pointing the runtime at that new tag
+
+name: agents/rename / deploy
+
+on:
+  pull_request:
+    paths:
+      - "agents/rename/**"
+  push:
+    branches: [main]
+    paths:
+      - "agents/rename/**"
+  workflow_dispatch: {}
+
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  TF_VAR_region: ${{ vars.AWS_REGION }}
+  TF_VAR_tf_state_bucket: ${{ vars.TF_STATE_BUCKET }}
+  TF_VAR_tf_state_region: ${{ vars.AWS_REGION }}
+
+jobs:
+  plan:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: agents/rename/infra
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: ${{ vars.AWS_REGION }}
+
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_wrapper: false
+
+      - name: terraform init
+        run: |
+          terraform init \
+            -backend-config="bucket=${{ vars.TF_STATE_BUCKET }}" \
+            -backend-config="region=${{ vars.AWS_REGION }}" \
+            -backend-config="dynamodb_table=${{ vars.TF_STATE_LOCK_TABLE }}"
+
+      - name: terraform validate
+        run: terraform validate
+
+      - name: terraform plan
+        run: terraform plan -input=false
+
+  deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: ${{ vars.AWS_REGION }}
+
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_wrapper: false
+
+      - name: terraform init
+        working-directory: agents/rename/infra
+        run: |
+          terraform init \
+            -backend-config="bucket=${{ vars.TF_STATE_BUCKET }}" \
+            -backend-config="region=${{ vars.AWS_REGION }}" \
+            -backend-config="dynamodb_table=${{ vars.TF_STATE_LOCK_TABLE }}"
+
+      - name: terraform apply (ECR repository only)
+        working-directory: agents/rename/infra
+        run: terraform apply -input=false -auto-approve -target=aws_ecr_repository.rename
+
+      - name: Read ECR repository URL
+        id: ecr
+        working-directory: agents/rename/infra
+        run: echo "url=$(terraform output -raw ecr_repository_url)" >> "$GITHUB_OUTPUT"
+
+      - uses: aws-actions/amazon-ecr-login@v2
+        id: ecr-login
+
+      - name: Build and push image
+        working-directory: agents/rename/app
+        env:
+          REPO_URL: ${{ steps.ecr.outputs.url }}
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          docker build -t "$REPO_URL:$IMAGE_TAG" -t "$REPO_URL:latest" .
+          docker push "$REPO_URL:$IMAGE_TAG"
+          docker push "$REPO_URL:latest"
+
+      - name: terraform apply (full stack)
+        working-directory: agents/rename/infra
+        run: terraform apply -input=false -auto-approve -var="image_tag=${{ github.sha }}"

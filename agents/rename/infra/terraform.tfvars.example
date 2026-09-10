@@ -1,0 +1,8 @@
+# Copy to terraform.tfvars (git-ignored). Also pass tf_state_bucket via
+# -var in CI so shared-infra's bucket name doesn't need to live in git.
+
+region          = "ap-northeast-1"
+name_prefix     = "agent-factory"
+tf_state_bucket = "agent-factory-tfstate-<account_id>"
+tf_state_region = "ap-northeast-1"
+# image_tag is normally passed with -var from the deploy workflow (git SHA).

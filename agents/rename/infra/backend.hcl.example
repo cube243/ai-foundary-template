@@ -1,0 +1,5 @@
+# Copy to backend.hcl (git-ignored). See shared-infra/cognito/backend.hcl.example
+# for where these values come from.
+bucket         = "agent-factory-tfstate-<account_id>"
+region         = "ap-northeast-1"
+dynamodb_table = "agent-factory-tfstate-lock"

@@ -1,0 +1,11 @@
+# Copy to backend.hcl (git-ignored) and fill in with the outputs from
+# shared-infra/bootstrap, or pass the same values with -backend-config
+# flags / GitHub Actions repository variables.
+#
+#   terraform init -backend-config=backend.hcl
+
+# NOTE: `key` and `encrypt` are already fixed in versions.tf; only pass the
+# environment-specific attributes below.
+bucket         = "agent-factory-tfstate-<account_id>"
+region         = "ap-northeast-1"
+dynamodb_table = "agent-factory-tfstate-lock"

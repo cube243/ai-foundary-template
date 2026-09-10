@@ -1,0 +1,12 @@
+# Copy this file to terraform.tfvars (git-ignored) and fill in real values.
+# terraform.tfvars is never committed.
+
+region      = "ap-northeast-1"
+name_prefix = "agent-factory"
+
+# "org/repo" of the GitHub repository that is allowed to assume the deploy
+# role. Required — there is no default on purpose.
+github_repository = "your-org/your-repo"
+
+# Optional: narrow down which refs may assume the deploy role.
+# github_oidc_allowed_refs = ["ref:refs/heads/main", "pull_request"]
