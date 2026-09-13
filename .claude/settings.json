@@ -1,7 +1,16 @@
 {
   "permissions": {
     "allow": [
-      "Bash(terraform version *)"
+      "Bash(terraform version *)",
+      "Bash(mkdir -p \"c:/Users/syuki/Documents/dev/ai-foundary-template/templates/rag-vector-db-bedrock-kb/lambda_add\" \\\\ *)",
+      "Bash(python -m py_compile lambda_common/auth_context.py lambda_common/document_key.py lambda_common/structured_logging.py lambda_common/__init__.py)",
+      "Read(//c/Users/syuki/AppData/Local/Temp/**)",
+      "Bash(python -m py_compile lambda_query/handler.py)",
+      "Bash(python -m py_compile lambda_common/ingest.py lambda_common/delete.py lambda_add/dispatch.py lambda_add/worker.py lambda_update/dispatch.py lambda_update/worker.py lambda_delete/dispatch.py lambda_delete/worker.py)",
+      "Bash(python -m py_compile lambda_get_status/handler.py lambda_purge_tenant/dispatch.py lambda_purge_tenant/worker.py)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\syuki\\Documents\\dev\\ai-foundary-template\\templates\\rag-vector-db-bedrock-kb"
     ]
   }
 }

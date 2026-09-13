@@ -1,0 +1,199 @@
+<mxfile host="app.diagrams.net" agent="Claude">
+  <diagram name="RAG Vector DB Architecture" id="rag-vdb-001">
+    <mxGraphModel dx="1980" dy="1929" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bg" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#F5F5F5;strokeColor=#E0E0E0;arcSize=2;" value="" vertex="1">
+          <mxGeometry height="1160" width="1050" x="-150" y="-280" as="geometry" />
+        </mxCell>
+        <mxCell id="title" parent="1" style="text;html=1;fontSize=18;fontStyle=1;fontColor=#232F3E;align=left;verticalAlign=middle;" value="RAGベクトルDBコンポーネント — AWS構成図" vertex="1">
+          <mxGeometry height="30" width="410" x="150" y="-190" as="geometry" />
+        </mxCell>
+        <mxCell id="grp-cloud" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fontStyle=0;container=1;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_aws_cloud;strokeColor=#232F3E;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;dashed=0;" value="AWS Cloud" vertex="1">
+          <mxGeometry height="610" width="960" x="-120" y="-160" as="geometry" />
+        </mxCell>
+        <mxCell id="hl-apigw" parent="grp-cloud" style="rounded=1;whiteSpace=wrap;fillColor=none;strokeColor=#F3A93B;strokeWidth=2.5;dashed=0;" value="" vertex="1">
+          <mxGeometry height="86" width="90" x="230" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-user-front" parent="grp-cloud" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#232F3E;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.user;" value="利用者/管理画面" vertex="1">
+          <mxGeometry height="48" width="48" x="100" y="188" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-apigw" parent="grp-cloud" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#8C4FFF;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.api_gateway;" value="API Gateway" vertex="1">
+          <mxGeometry height="48" width="48" x="252" y="188" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-cognito" parent="grp-cloud" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#DD344C;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.cognito;" value="Cognito(User Pool)" vertex="1">
+          <mxGeometry height="48" width="48" x="252" y="338" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-user-agent" parent="grp-cloud" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#232F3E;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.user;" value="ツールエージェント&lt;div&gt;(LLM)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="48" width="48" x="80" y="468" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-agentcore-gw" parent="grp-cloud" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#01A88D;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.bedrock_agentcore;" value="AgentCore Gateway&#xa;(MCP公開)" vertex="1">
+          <mxGeometry height="48" width="48" x="252" y="468" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-eventbridge" parent="grp-cloud" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.eventbridge;" value="EventBridge&#xa;(定期起動)" vertex="1">
+          <mxGeometry height="48" width="48" x="252" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="hl-interceptor" parent="grp-cloud" style="rounded=1;whiteSpace=wrap;fillColor=none;strokeColor=#F3A93B;strokeWidth=2.5;dashed=0;" value="" vertex="1">
+          <mxGeometry height="98" width="110" x="429" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="M0qqo0ZhUavYcmmjuXlM-14" edge="1" parent="grp-cloud" source="svc-sqs" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="svc-interceptor" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-sqs" parent="grp-cloud" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.sqs;" value="SQS(取り込み/削除キュー + DLQ)&lt;div&gt;&lt;span style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212));&quot;&gt;※Bedrockの同時実行数上限&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212));&quot;&gt;の対策&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="48" width="48" x="460" y="188" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-lambda-write" parent="grp-cloud" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;" value="書き込み系Lambda&#xa;(add/update/delete/purge)" vertex="1">
+          <mxGeometry height="48" width="48" x="650" y="188" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-interceptor" parent="grp-cloud" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;" value="Interceptor Lambda&#xa;(tenant_id確定)" vertex="1">
+          <mxGeometry height="48" width="48" x="460" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-lambda-read" parent="grp-cloud" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;" value="クエリ検索Lambda&lt;br&gt;(query)" vertex="1">
+          <mxGeometry height="48" width="48" x="460" y="512" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-dynamodb" parent="grp-cloud" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#C925D1;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.dynamodb;" value="DynamoDB&#xa;(台帳/ジョブ管理)" vertex="1">
+          <mxGeometry height="48" width="48" x="830" y="188" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-bedrock-kb" parent="grp-cloud" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#01A88D;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.bedrock;" value="Bedrock Knowledge Base&#xa;(カスタムデータソース)" vertex="1">
+          <mxGeometry height="48" width="48" x="830" y="338" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-s3-vectors" parent="grp-cloud" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#7AA116;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.s3_vectors;" value="S3 Vectors&#xa;(実ベクトルストア)" vertex="1">
+          <mxGeometry height="48" width="48" x="830" y="478" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-lambda-insurance" parent="grp-cloud" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;" value="保険系Lambda&lt;br&gt;(DLQハンドラ/整合性チェック)&lt;div&gt;&lt;span style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212));&quot;&gt;※DLQにたまったもの、不整合なもの&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212));&quot;&gt;をFAILEDに書き換える&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="48" width="48" x="460" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-cloudwatch" parent="grp-cloud" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.cloudwatch_2;" value="CloudWatch&#xa;(ログ/アラーム)" vertex="1">
+          <mxGeometry height="48" width="48" x="650" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-4" edge="1" parent="grp-cloud" source="svc-sqs" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;elbow=vertical;startArrow=none;endFill=1;strokeColor=#545B64;rounded=0;fontSize=10;fontColor=#545B64;" target="svc-lambda-write" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-5" edge="1" parent="grp-cloud" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;elbow=vertical;startArrow=none;endFill=1;strokeColor=#545B64;rounded=0;fontSize=10;fontColor=#545B64;" target="svc-dynamodb" value="台帳/ジョブ書き込み">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="698" y="212" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-12" edge="1" parent="grp-cloud" source="svc-lambda-read" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;elbow=vertical;startArrow=none;endFill=1;strokeColor=#545B64;rounded=0;fontSize=10;fontColor=#545B64;entryX=0;entryY=0.75;entryDx=0;entryDy=0;entryPerimeter=0;" target="svc-bedrock-kb" value="ベクトル検索&lt;div&gt;(tenant_idフィルタ)&lt;/div&gt;">
+          <mxGeometry relative="1" x="-0.12" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-14" edge="1" parent="grp-cloud" source="svc-bedrock-kb" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;elbow=vertical;startArrow=none;endFill=1;strokeColor=#545B64;rounded=0;fontSize=10;fontColor=#545B64;" target="svc-s3-vectors" value="ベクトル格納">
+          <mxGeometry relative="1" x="0.0069" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-15" edge="1" parent="grp-cloud" source="svc-sqs" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;elbow=vertical;startArrow=none;endFill=1;strokeColor=#545B64;rounded=0;fontSize=10;fontColor=#545B64;" target="svc-lambda-insurance" value="DLQ">
+          <mxGeometry relative="1" x="-0.5385" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-18" edge="1" parent="grp-cloud" source="svc-lambda-insurance" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;elbow=vertical;startArrow=none;endFill=1;strokeColor=#545B64;rounded=0;fontSize=10;fontColor=#545B64;dashed=1;" target="svc-cloudwatch" value="ログ出力(全Lambda共通)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-1" edge="1" parent="grp-cloud" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;elbow=vertical;startArrow=none;endFill=1;strokeColor=#545B64;rounded=0;fontSize=10;fontColor=#545B64;" target="svc-apigw" value="HTTPS">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="159.99999999999977" y="211.99999999999977" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-2" edge="1" parent="grp-cloud" source="svc-apigw" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;elbow=vertical;startArrow=none;endFill=1;strokeColor=#545B64;rounded=0;fontSize=10;fontColor=#545B64;" target="svc-cognito" value="JWT検証">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-3" edge="1" parent="grp-cloud" source="svc-apigw" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;elbow=vertical;startArrow=none;endFill=1;strokeColor=#545B64;rounded=0;fontSize=10;fontColor=#545B64;" target="svc-sqs" value="add/update/delete/purge">
+          <mxGeometry relative="1" x="0.125" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-7" edge="1" parent="grp-cloud" source="svc-user-agent" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;elbow=vertical;startArrow=none;endFill=1;strokeColor=#545B64;rounded=0;fontSize=10;fontColor=#545B64;" target="svc-agentcore-gw" value="MCP: query_document">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-8" edge="1" parent="grp-cloud" source="svc-agentcore-gw" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;elbow=vertical;startArrow=none;endFill=1;strokeColor=#545B64;rounded=0;fontSize=10;fontColor=#545B64;" target="svc-cognito" value="Inbound JWT検証">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-16" edge="1" parent="grp-cloud" source="svc-eventbridge" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;elbow=vertical;startArrow=none;endFill=1;strokeColor=#545B64;rounded=0;fontSize=10;fontColor=#545B64;" target="svc-lambda-insurance" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-6" edge="1" parent="grp-cloud" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;elbow=vertical;startArrow=none;endFill=1;strokeColor=#545B64;rounded=0;fontSize=10;fontColor=#545B64;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="svc-bedrock-kb" value="Ingest/Delete">
+          <mxGeometry relative="1" x="-0.4872" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="680" y="362" />
+            </Array>
+            <mxPoint x="680" y="278" as="sourcePoint" />
+            <mxPoint x="1116" y="468" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M0qqo0ZhUavYcmmjuXlM-1" parent="grp-cloud" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;" value="進捗確認Lambda&lt;br&gt;(get_status)" vertex="1">
+          <mxGeometry height="48" width="48" x="586" y="288" as="geometry" />
+        </mxCell>
+        <mxCell id="M0qqo0ZhUavYcmmjuXlM-2" edge="1" parent="grp-cloud" source="svc-apigw" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;elbow=vertical;startArrow=none;endFill=1;strokeColor=#545B64;rounded=0;fontSize=10;fontColor=#545B64;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" target="M0qqo0ZhUavYcmmjuXlM-1" value="get_status">
+          <mxGeometry relative="1" x="0.2571" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="330" y="212" />
+              <mxPoint x="330" y="312" />
+            </Array>
+            <mxPoint x="340" y="298" as="sourcePoint" />
+            <mxPoint x="340" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M0qqo0ZhUavYcmmjuXlM-7" edge="1" parent="grp-cloud" source="M0qqo0ZhUavYcmmjuXlM-1" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;elbow=vertical;startArrow=none;endFill=1;strokeColor=#545B64;rounded=0;fontSize=10;fontColor=#545B64;dashed=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" target="svc-dynamodb" value="進捗確認">
+          <mxGeometry relative="1" x="-0.175" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="770" y="312" />
+              <mxPoint x="770" y="224" />
+            </Array>
+            <mxPoint x="680" y="434.0000000000002" as="sourcePoint" />
+            <mxPoint x="520" y="318" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M0qqo0ZhUavYcmmjuXlM-9" edge="1" parent="grp-cloud" source="svc-agentcore-gw" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;elbow=vertical;startArrow=none;endFill=1;strokeColor=#545B64;rounded=0;fontSize=10;fontColor=#545B64;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" target="svc-lambda-read" value="MCP：クエリ検索">
+          <mxGeometry relative="1" x="-0.1182" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="320" y="504" as="sourcePoint" />
+            <mxPoint x="642" y="386" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-10" edge="1" parent="grp-cloud" source="svc-agentcore-gw" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;elbow=vertical;startArrow=none;endFill=1;strokeColor=#545B64;rounded=0;fontSize=10;fontColor=#545B64;dashed=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;exitPerimeter=0;" target="svc-interceptor" value="経由：JWT再検証&lt;div&gt;tenant_id確定&lt;/div&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="468" as="sourcePoint" />
+            <mxPoint x="420" y="358" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M0qqo0ZhUavYcmmjuXlM-10" edge="1" parent="grp-cloud" source="hl-interceptor" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;elbow=vertical;startArrow=none;endFill=1;strokeColor=#545B64;rounded=0;fontSize=10;fontColor=#545B64;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="svc-lambda-read" value="tenant_idをヘッダー付与">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580" y="458" as="sourcePoint" />
+            <mxPoint x="580" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M0qqo0ZhUavYcmmjuXlM-11" parent="grp-cloud" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;dashed=1;dashPattern=8 8;" value="" vertex="1">
+          <mxGeometry height="98" width="110" x="50" y="462" as="geometry" />
+        </mxCell>
+        <mxCell id="M0qqo0ZhUavYcmmjuXlM-12" parent="grp-cloud" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="別コンポーネント" vertex="1">
+          <mxGeometry height="30" width="100" x="60" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="M0qqo0ZhUavYcmmjuXlM-13" parent="grp-cloud" style="rounded=1;whiteSpace=wrap;fillColor=#D1FAE5;strokeColor=#059669;fontColor=#065F46;fontSize=10;fontStyle=1;" value="✓ MCP化する" vertex="1">
+          <mxGeometry height="20" width="90" x="490" y="492" as="geometry" />
+        </mxCell>
+        <mxCell id="M0qqo0ZhUavYcmmjuXlM-16" edge="1" parent="grp-cloud" source="svc-lambda-insurance" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;elbow=vertical;startArrow=none;endFill=1;strokeColor=#545B64;rounded=0;fontSize=10;fontColor=#545B64;exitX=1;exitY=0.75;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="svc-dynamodb" value="台帳/ジョブ書き換え">
+          <mxGeometry relative="1" x="0.3362" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="620" y="76" />
+              <mxPoint x="620" y="160" />
+              <mxPoint x="854" y="160" />
+            </Array>
+            <mxPoint x="600" y="150" as="sourcePoint" />
+            <mxPoint x="732" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend" parent="1" style="text;html=1;fontSize=12;fontColor=#232F3E;align=left;verticalAlign=top;whiteSpace=wrap;" value="🔒オレンジ枠 = tenant_idが検証済み情報から確定する境界(API Gateway / Interceptor Lambda)。それ以外のLambdaは、確定済みの値をヘッダー/メッセージ経由で受け取るのみで、tenant_idを自ら判断しない。" vertex="1">
+          <mxGeometry height="48" width="740" x="100" y="460" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
